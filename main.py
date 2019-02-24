@@ -24,37 +24,51 @@ day_wo_food = 0
 day_wo_med = 0
 
 # начать игру
-print('')# приветсвие
-print('')# правила
-print('')# нажмите 1
+print('PAPERS, PLEASE!')
+print('Press "0" to read rules')
+print('Press "1" to start game')
 while dec != 1:
-try:
-    dec = int(input())
-except ValueError:
-    print('')
+    try:
+        dec = int(input())
+    except ValueError:
+        print('Press "0" to read rules')
+        print('Press "1" to start game')
+    if dec == 0:
+        print(rules)
 
 while endgame == 2:
     
-    print('')
-    print('')
-    print('')
-    print('')
-    print('')
+    print('DAY: ', day)
+    print('You have: ', money, '$')
+    if son == 1:
+        print('Son is alive')
+    if wife == 1:
+        print('Wife is alive')
+    if daughter == 1:
+        print('Daughter is alive')
+    if granny == 1:
+        print('Granny is alive')
+    if day > 0:
+        print('You paid 15$ for your rent')
+    print('You can buy food for 20$')
+    print('Press "1" to buy food or "0" to not')
     while buy_food != 1 or buyfood != 0:
         try:
             buy_food = int(input())
         except ValueError:
-            print('')
+            print('Press "1" to buy food or "0" to not')
     if buy_food == 1:
         money = money - food_cost
         food = 1
     else:
         food = 0
+    print('You can buy medicines for 10$')
+    print('Press "1" to buy medicines or "0" to not')
     while buy_med != 1 or buy_med != 0:
         try:
             buy_med = int(input())
         except ValueError:
-            print('')
+            print('Press "1" to buy medicines or "0" to not')
     if buy_med == 1:
         money = money - med_cost
         med = 1
@@ -122,6 +136,7 @@ while endgame == 2:
         if chance < deathprob:
             son = 0
             print('')
+    day = day + 1
     if son == 0 and daughter == 0 and wife == 0 and granny == 0:
         endgame = 3
     if day = 15:
