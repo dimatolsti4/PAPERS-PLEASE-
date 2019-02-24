@@ -74,7 +74,7 @@ while endgame == 2:
     num_of_correct = 0
     num_of_incorrect = 0
     vis_num = 0
-    while start_time < cur_time + 30 or num_of_incorrect = 3:
+    while start_time > cur_time - 30 or num_of_incorrect = 3:
         vis_num = vis_num + 1
         print('Visitor number: ', vis_num)
         cur_time = time.time()
