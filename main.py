@@ -104,7 +104,7 @@ while endgame == 2:
 
     income = num_of_correct * pay_for_correct
     money = money + income
-    money = money - 10
+    money = money - 15
     if food == 0:
         day_wo_food = day_wo_food + 1
     else:
@@ -115,27 +115,27 @@ while endgame == 2:
         day_wo_med = 0
     food = 0
     med = 0
-    deathprob = ()
+    deathprob = (3 ** day_wo_food + 2 ** day_wo_med) ** 1
     if son == 1:
         chance = random.randint(0,100)
         if chance < deathprob:
             son = 0
-            print('')
+            print('Your son died')
     if daughter == 1:
         chance = random.randint(0,100)
         if chance < deathprob:
-            son = 0
-            print('')
+            daughter = 0
+            print('Your daughter died')
     if wife == 1:
         chance = random.randint(0,100)
         if chance < deathprob:
-            son = 0
-            print('')
+            wife = 0
+            print('Your wife died')
     if granny == 1:
         chance = random.randint(0,100)
         if chance < deathprob:
-            son = 0
-            print('')
+            granny = 0
+            print('Your granny died')
     day = day + 1
     if son == 0 and daughter == 0 and wife == 0 and granny == 0:
         endgame = 3
@@ -144,7 +144,6 @@ while endgame == 2:
     if money < 0:
         endgame = 5
     if money > 250:
-        print('')
         endgame = 1        
     
 if endgame == 1:
