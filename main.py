@@ -1,12 +1,10 @@
 import timeit, random
 
-
-# списки
 list_name_male = [Fracois, Tzukan, Arron, Claude, Peter, Alin, Michael, Nikita, Gregory, Eugen, Tomas, Bjorn, John, Simon, Vince, Danic, Kordon, Messof, Mikhail, Nathan, Filipe]
 list_name_female = [Inessa, Alana, Goncalina, Riffka, Stepheni, Danika, Katherine, Marie, Shae, Elisa]
 list_surname = [Degryse, Tzukan, Hopcraft, Mothias, Cizadlo, Ingebret, Lopes, Dragomir, Desjardins, Ramsdinska, Beilstein, Hoffman, Graire, Kudeuske, Davok, Eriksson, Blovska]
 list_countries = [Antegria, Impor, Obristan, Kolechia, Republia]
-# начальные параметры
+
 money = 100
 son = 1
 daughter = 1
@@ -23,7 +21,6 @@ answer = 2
 day_wo_food = 0
 day_wo_med = 0
 
-# начать игру
 print('PAPERS, PLEASE!')
 print('Press "0" to read rules')
 print('Press "1" to start game')
@@ -37,7 +34,6 @@ while dec != 1:
         print(rules)
 
 while endgame == 2:
-    
     print('DAY: ', day)
     print('You have: ', money, '$')
     if son == 1:
@@ -58,7 +54,7 @@ while endgame == 2:
         except ValueError:
             print('Press "1" to buy food or "0" to not')
     if buy_food == 1:
-        money = money - food_cost
+        money = money - 25
         food = 1
     else:
         food = 0
@@ -70,28 +66,29 @@ while endgame == 2:
         except ValueError:
             print('Press "1" to buy medicines or "0" to not')
     if buy_med == 1:
-        money = money - med_cost
+        money = money - 10
         med = 1
     else:
         med = 0
-
     start_time = time.time()
     num_of_correct = 0
     num_of_incorrect = 0
-    while start_time < cur_time + working_day_time or num_of_incorrect = 3:
+    vis_num = 0
+    while start_time < cur_time + 30 or num_of_incorrect = 3:
+        vis_num = vis_num + 1
         cur_time = time.time()
         true_answer = random.random()
         if true_answer == 0:
             
         else:
             
-        print('')
-        print('')
+        print('Visitor number: ', vis_num)
+        print('Press "1" to let him pass or "0" to not')
         while answer != 1 or answer != 0:
         try:
             answer = int(input())
         except ValueError:
-            print('')
+            print('Press "1" to let him pass or "0" to not')
         if answer == 1:
             print()
         else:
@@ -99,10 +96,15 @@ while endgame == 2:
         if answer == true_answer:
             num_of_correct = num_of_correct + 1
         else
-            num_of_incorrect = num_of_incorrect + 1
-            print('')
-
-    income = num_of_correct * pay_for_correct
+            if true_answer < answer:
+                num_of_incorrect = num_of_incorrect + 1
+                print('INCORRECT!')
+                print('PAY MORE ATTENTION!')
+    income = (num_of_correct - num_of_incorrect) * 25
+    if num_of_incorrect == 3:
+        income = 0
+        print('YOU WILL NOT RECIVE MONEY FOR TODAY BECOUSE OF TOO MANY MISTAKES')
+    print('You earned:', income)
     money = money + income
     money = money - 15
     if food == 0:
