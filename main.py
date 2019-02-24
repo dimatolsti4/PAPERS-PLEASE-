@@ -2,10 +2,10 @@ import timeit, random
 
 
 # списки
-list_name_male = [Fracois, ]
-list_name_female = []
-list_surname = []
-list_countries = []
+list_name_male = [Fracois, Tzukan, Arron, Claude, Peter, Alin, Michael, Nikita, Gregory, Eugen, Tomas, Bjorn, John, Simon, Vince, Danic, Kordon, Messof, Mikhail, Nathan, Filipe]
+list_name_female = [Inessa, Alana, Goncalina, Riffka, Stepheni, Danika, Katherine, Marie, Shae, Elisa]
+list_surname = [Degryse, Tzukan, Hopcraft, Mothias, Cizadlo, Ingebret, Lopes, Dragomir, Desjardins, Ramsdinska, Beilstein, Hoffman, Graire, Kudeuske, Davok, Eriksson, Blovska]
+list_countries = [Antegria, Impor, Obristan, Kolechia, Republia]
 # начальные параметры
 money = 100
 son = 1
