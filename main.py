@@ -1,9 +1,9 @@
 import timeit, random
 
-list_name_male = [Fracois, Tzukan, Arron, Claude, Peter, Alin, Michael, Nikita, Gregory, Eugen, Tomas, Bjorn, John, Simon, Vince, Danic, Kordon, Messof, Mikhail, Nathan, Filipe]
-list_name_female = [Inessa, Alana, Goncalina, Riffka, Stepheni, Danika, Katherine, Marie, Shae, Elisa]
-list_surname = [Degryse, Tzukan, Hopcraft, Mothias, Cizadlo, Ingebret, Lopes, Dragomir, Desjardins, Ramsdinska, Beilstein, Hoffman, Graire, Kudeuske, Davok, Eriksson, Blovska]
-list_countries = [Antegria, Impor, Obristan, Kolechia, Republia]
+list_name_male = ['Fracois', 'Tzukan', 'Arron', 'Claude', 'Peter', 'Alin', 'Michael', 'Nikita', 'Gregory', 'Eugen', 'Tomas', 'Bjorn', 'John', 'Simon', 'Vince', 'Danic', 'Kordon', 'Messof', 'Mikhail', 'Nathan', 'Filipe']
+list_name_female = ['Inessa', 'Alana', 'Goncalina', 'Riffka', 'Stepheni', 'Danika', 'Katherine', 'Marie', 'Shae', 'Elisa']
+list_surname = ['Degryse', 'Tzukan', 'Hopcraft', 'Mothias', 'Cizadlo', 'Ingebret', 'Lopes', 'Dragomir', 'Desjardins', 'Ramsdinska', 'Beilstein', 'Hoffman', 'Graire', 'Kudeuske', 'Davok', 'Eriksson', 'Blovska']
+list_countries = ['Antegria', 'Impor', 'Obristan', 'Kolechia', 'Republia']
 
 money = 100
 son = 1
@@ -81,7 +81,26 @@ while endgame == 2:
         if true_answer == 0:
             
         else:
-            
+            sex = random.random()
+            if sex == 1:
+                name = list_name_male[random.randint(0,20)]
+                surname = list_surname[random.randint(0,16)]
+                country = list_countries[random.randint(0,4)]
+                birth_day = str(random.randint(1,28))
+                birth_month = str(random.randint(1,12))
+                birth_year = str(random.randin(1950,2004))
+                birth_date = birth_day + '.' + birth_month + '.' + birth_year
+                sex = 'MALE'
+                name = surname + ',' + name
+                ex_day = str(random.randint(1,28))
+                ex_month = str(random.randint(1,12))
+                ex_year = str(random.randint(2019,2025))
+                ex_date = ex_day + '.' + ex_month + '.' + ex_year
+                with open('passportmale.txt') as file_read:
+                    passport = file_read.read()
+                name = 'NAME: ' + name + ' ' * (45 - len(name))
+                passport.replace('NAME:                                             ', name)
+                    
         print('Visitor number: ', vis_num)
         print('Press "1" to let him pass or "0" to not')
         while answer != 1 or answer != 0:
