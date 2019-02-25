@@ -1,4 +1,4 @@
-import timeit, random
+import time, random
 
 list_name_male = ['Fracois', 'Tzukan', 'Arron', 'Claude', 'Peter', 'Alin', 'Michael', 'Nikita', 'Gregory', 'Eugen', 'Tomas', 'Bjorn', 'John', 'Simon', 'Vince', 'Danic', 'Kordon', 'Messof', 'Mikhail', 'Nathan', 'Filipe']
 list_name_female = ['Inessa', 'Alana', 'Goncalina', 'Riffka', 'Stepheni', 'Danika', 'Katherine', 'Marie', 'Shae', 'Elisa']
@@ -31,7 +31,7 @@ while dec != 1:
         print('Press "0" to read rules')
         print('Press "1" to start game')
     if dec == 0:
-        print(rules)
+        print('rules')
 
 while endgame == 2:
     print('DAY: ', day)
@@ -48,7 +48,11 @@ while endgame == 2:
         print('You paid 15$ for your rent')
     print('You can buy food for 20$')
     print('Press "1" to buy food or "0" to not')
-    while buy_food != 1 or buyfood != 0:
+    try:
+        buy_food = int(input())
+    except ValueError:
+        print('Press "1" to buy food or "0" to not')
+    while buy_food != 1 and buy_food != 0:
         try:
             buy_food = int(input())
         except ValueError:
@@ -60,7 +64,11 @@ while endgame == 2:
         food = 0
     print('You can buy medicines for 10$')
     print('Press "1" to buy medicines or "0" to not')
-    while buy_med != 1 or buy_med != 0:
+    try:
+        buy_med = int(input())
+    except ValueError:
+        print('Press "1" to buy medicines or "0" to not')
+    while buy_med != 1 and buy_med != 0:
         try:
             buy_med = int(input())
         except ValueError:
@@ -71,32 +79,35 @@ while endgame == 2:
     else:
         med = 0
     start_time = time.time()
+    cur_time = time.time()
     num_of_correct = 0
     num_of_incorrect = 0
     vis_num = 0
     while start_time > cur_time - 30 or num_of_incorrect == 3:
         vis_num = vis_num + 1
         print('Visitor number: ', vis_num)
-        true_answer = random.random()
+        true_answer = random.randint(0,1)
         if true_answer == 0:
             print('IA NE DODELAL')
+            passport = 'IA DODIK'
+            name = ' '
+            birth_date = ' '
+            country = ' '
         if true_answer == 1:
-            sex = random.random()
+            sex = random.randint(0,1)
             if sex == 1:
                 name = list_name_male[random.randint(0,20)]
                 sex = 'MELE'
-                with open('passportmale.txt') as file_read:
-                    passport = file_read.read()
+                passport = open("passportmale.txt").read()
             else:
-                name = list_name_female[random.randint(0,20)]
+                name = list_name_female[random.randint(0,8)]
                 sex = 'FEMALE'
-                with open('passportfemale.txt') as file_read:
-                    passport = file_read.read()
+                passport = open("passportfemale.txt").read()
             surname = list_surname[random.randint(0,16)]
             country = list_countries[random.randint(0,4)]
             birth_day = str(random.randint(1,28))
             birth_month = str(random.randint(1,12))
-            birth_year = str(random.randin(1950,2004))
+            birth_year = str(random.randint(1950,2004))
             birth_date = birth_day + '.' + birth_month + '.' + birth_year
             name = surname + ',' + name
             ex_day = str(random.randint(1,28))
@@ -104,15 +115,15 @@ while endgame == 2:
             ex_year = str(random.randint(2019,2025))
             ex_date = ex_day + '.' + ex_month + '.' + ex_year
             name1 = 'NAME: ' + name + ' ' * (44 - len(name))
-            passport.replace('NAME:                                             ', name1)
-            bith_date1 = 'DATE-OF-BIRTH: ' + birth_date + ' ' * (35 - len(birth_date))
-            passport.replace('DATE-OF-BIRTH:                                    ', birth_date1)
+            passport = passport.replace('NAME:                                             ', name1)
+            birth_date1 = 'DATE-OF-BIRTH: ' + birth_date + ' ' * (35 - len(birth_date))
+            passport = passport.replace('DATE-OF-BIRTH:                                    ', birth_date1)
             sex1 = 'SEX: ' + sex + ' ' * (45 - len(sex))
-            passport.replace('SEX:                                              ', sex1)
+            passport = passport.replace('SEX:                                              ', sex1)
             country1 = 'COUNTRY: ' + country + ' ' * (41 - len(country))
-            passport.replace('COUNTRY:                                          ', country1)
+            passport = passport.replace('COUNTRY:                                          ', country1)
             ex_date1 = 'EXPIRATION-DATE: ' + ex_date + ' ' * (33 - len(ex_date))
-            passport.replace('EXPIRATION-DATE:                                  ', ex_date1)
+            passport = passport.replace('EXPIRATION-DATE:                                  ', ex_date1)
         print(passport)
         print('VISITOR INFORMATION:')
         print('NAME: ', name)
@@ -120,7 +131,11 @@ while endgame == 2:
         print('COUNTRY: ', country)
                 
         print('Press "1" to let him pass or "0" to not')
-        while answer != 1 or answer != 0:
+        try:
+            answer = int(input())
+        except ValueError:
+            print('Press "1" to let him pass or "0" to not')
+        while answer != 1 and answer != 0:
             try:
                 answer = int(input())
             except ValueError:
