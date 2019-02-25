@@ -77,7 +77,6 @@ while endgame == 2:
     while start_time > cur_time - 30 or num_of_incorrect = 3:
         vis_num = vis_num + 1
         print('Visitor number: ', vis_num)
-        cur_time = time.time()
         true_answer = random.random()
         if true_answer == 0:
             
@@ -85,35 +84,40 @@ while endgame == 2:
             sex = random.random()
             if sex == 1:
                 name = list_name_male[random.randint(0,20)]
-                surname = list_surname[random.randint(0,16)]
-                country = list_countries[random.randint(0,4)]
-                birth_day = str(random.randint(1,28))
-                birth_month = str(random.randint(1,12))
-                birth_year = str(random.randin(1950,2004))
-                birth_date = birth_day + '.' + birth_month + '.' + birth_year
-                sex = 'MALE'
-                name = surname + ',' + name
-                ex_day = str(random.randint(1,28))
-                ex_month = str(random.randint(1,12))
-                ex_year = str(random.randint(2019,2025))
-                ex_date = ex_day + '.' + ex_month + '.' + ex_year
+                sex = 'MELE'
                 with open('passportmale.txt') as file_read:
                     passport = file_read.read()
-                name1 = 'NAME: ' + name + ' ' * (44 - len(name))
-                passport.replace('NAME:                                             ', name1)
-                bith_date1 = 'DATE-OF-BIRTH: ' + birth_date + ' ' * (35 - len(birth_date))
-                passport.replace('DATE-OF-BIRTH:                                    ', birth_date1)
-                sex1 = 'SEX: ' + sex + ' ' * (45 - len(sex))
-                passport.replace('SEX:                                              ', sex1)
-                country1 = 'COUNTRY: ' + country + ' ' * (41 - len(country))
-                passport.replace('COUNTRY:                                          ', country1)
-                ex_date1 = 'EXPIRATION-DATE: ' + ex_date + ' ' * (33 - len(ex_date))
-                passport.replace('EXPIRATION-DATE:                                  ', ex_date1)
-                print(passport)
-                print('VISITOR INFORMATION:')
-                print('NAME: ', name)
-                print('DATE OF BIRTH: ', birth_date)
-                print('COUNTRY: ', country)
+            else:
+                name = list_name_female[random.randint(0,20)]
+                sex = 'FEMALE'
+                with open('passportfemale.txt') as file_read:
+                    passport = file_read.read()
+            surname = list_surname[random.randint(0,16)]
+            country = list_countries[random.randint(0,4)]
+            birth_day = str(random.randint(1,28))
+            birth_month = str(random.randint(1,12))
+            birth_year = str(random.randin(1950,2004))
+            birth_date = birth_day + '.' + birth_month + '.' + birth_year
+            name = surname + ',' + name
+            ex_day = str(random.randint(1,28))
+            ex_month = str(random.randint(1,12))
+            ex_year = str(random.randint(2019,2025))
+            ex_date = ex_day + '.' + ex_month + '.' + ex_year
+            name1 = 'NAME: ' + name + ' ' * (44 - len(name))
+            passport.replace('NAME:                                             ', name1)
+            bith_date1 = 'DATE-OF-BIRTH: ' + birth_date + ' ' * (35 - len(birth_date))
+            passport.replace('DATE-OF-BIRTH:                                    ', birth_date1)
+            sex1 = 'SEX: ' + sex + ' ' * (45 - len(sex))
+            passport.replace('SEX:                                              ', sex1)
+            country1 = 'COUNTRY: ' + country + ' ' * (41 - len(country))
+            passport.replace('COUNTRY:                                          ', country1)
+            ex_date1 = 'EXPIRATION-DATE: ' + ex_date + ' ' * (33 - len(ex_date))
+            passport.replace('EXPIRATION-DATE:                                  ', ex_date1)
+            print(passport)
+            print('VISITOR INFORMATION:')
+            print('NAME: ', name)
+            print('DATE OF BIRTH: ', birth_date)
+            print('COUNTRY: ', country)
                 
         print('Press "1" to let him pass or "0" to not')
         while answer != 1 or answer != 0:
@@ -132,6 +136,7 @@ while endgame == 2:
                 num_of_incorrect = num_of_incorrect + 1
                 print('INCORRECT!')
                 print('PAY MORE ATTENTION!')
+        cur_time = time.time()
     income = (num_of_correct - num_of_incorrect) * 25
     if num_of_incorrect == 3:
         income = 0
