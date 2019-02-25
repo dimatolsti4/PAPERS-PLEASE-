@@ -74,13 +74,13 @@ while endgame == 2:
     num_of_correct = 0
     num_of_incorrect = 0
     vis_num = 0
-    while start_time > cur_time - 30 or num_of_incorrect = 3:
+    while start_time > cur_time - 30 or num_of_incorrect == 3:
         vis_num = vis_num + 1
         print('Visitor number: ', vis_num)
         true_answer = random.random()
         if true_answer == 0:
-            
-        else:
+            print('IA NE DODELAL')
+        if true_answer == 1:
             sex = random.random()
             if sex == 1:
                 name = list_name_male[random.randint(0,20)]
@@ -113,25 +113,25 @@ while endgame == 2:
             passport.replace('COUNTRY:                                          ', country1)
             ex_date1 = 'EXPIRATION-DATE: ' + ex_date + ' ' * (33 - len(ex_date))
             passport.replace('EXPIRATION-DATE:                                  ', ex_date1)
-            print(passport)
-            print('VISITOR INFORMATION:')
-            print('NAME: ', name)
-            print('DATE OF BIRTH: ', birth_date)
-            print('COUNTRY: ', country)
+        print(passport)
+        print('VISITOR INFORMATION:')
+        print('NAME: ', name)
+        print('DATE OF BIRTH: ', birth_date)
+        print('COUNTRY: ', country)
                 
         print('Press "1" to let him pass or "0" to not')
         while answer != 1 or answer != 0:
-        try:
-            answer = int(input())
-        except ValueError:
-            print('Press "1" to let him pass or "0" to not')
+            try:
+                answer = int(input())
+            except ValueError:
+                print('Press "1" to let him pass or "0" to not')
         if answer == 1:
             print()
         else:
             print()
         if answer == true_answer:
             num_of_correct = num_of_correct + 1
-        else
+        else:
             if true_answer < answer:
                 num_of_incorrect = num_of_incorrect + 1
                 print('INCORRECT!')
@@ -178,7 +178,7 @@ while endgame == 2:
     day = day + 1
     if son == 0 and daughter == 0 and wife == 0 and granny == 0:
         endgame = 3
-    if day = 15:
+    if day == 15:
         endgame = 4
     if money < 0:
         endgame = 5
