@@ -26,6 +26,8 @@ dec = 0
 answer = 2
 day_wo_food = 0
 day_wo_med = 0
+bribe_taken = 0
+money_notfair = 0
 
 print('PAPERS, PLEASE!')
 print('Press "0" to read rules')
@@ -94,6 +96,7 @@ while endgame == 2:
         print('Visitor number: ', vis_num)
         true_answer = random.randint(0,1)
         sex = random.randint(0,1)
+        ans=''
                 
         if true_answer == 0:
             mistake = list_mistakes[random.randint(0,6)]
@@ -360,19 +363,45 @@ while endgame == 2:
         if true_answer == 0 and answer == 0 :
             chance = (random.randint(0,100))
             bribe = (random.randint(30,100))
-            if chance <= 20:
+            if chance < 20:
                 print('You are offered a bribe:',bribe,'$')
                 print('1 To take a bribe or 0 to decline')
                 ans=input()
-                if ans == 1:
-                    income += bribe
-                    income_notfair += bribe
+                print('Successfuly!')
+                print()
+                if ans == '1':
+                    money += bribe
+                    money_notfair += bribe
+                    bribe_taken += 1
+                    
+        inspect_chance = 7 + 2**bribe_taken
+        if random.randint(1,100) < inspect_chance :
+            print('You are surrounded by police')
+            if bribe_taken == 0 :
+                print('Your speech was so good that you dodged TerraLUl xd')
+            elif random.randint(1,100) < 40 and bribe_taken != 0 :
+                rnd = random.randint(2,6)
+                print('You may pay off for:', money // rnd,'$')
+                print('1 To pay off or 0 to decline')
+                wow = input()
+                if wow == '1':
+                    money -= money // rnd
+                elif wow == '0':
+                    money -= (money_notfair // 3 + money // 6)
+                bribe_taken = 0
+            else:
+                print('HANDS ON THE TABLE!!!!! GET DOWN !!!!! PAPSNAZ WORKS')
+                print('У вас забрали', money_notfair // 2.5 + money // 3,'$')
+                money -= (money_notfair //1.5 + money//3)
+                bribe_taken = 0
+            print()
         cur_time = time.time()
+        money_notfair = 0
     income = (num_of_correct - num_of_incorrect) * 25
     if num_of_incorrect >= 3:
         income = 0
         print('YOU WILL NOT RECIVE MONEY FOR TODAY BECOUSE OF TOO MANY MISTAKES')
-    print('You earned:', income)
+    print('You earned:', income + money_notfair)
     money = money + income
     money = money - 15
     if food == 0:
@@ -413,7 +442,7 @@ while endgame == 2:
         endgame = 4
     if money < 0:
         endgame = 5
-    if money > 250:
+    if money > 1000 :
         endgame = 1        
     
 if endgame == 1:
