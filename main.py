@@ -4,7 +4,7 @@ list_name_male = ['Fracois', 'Tzukan', 'Arron', 'Claude', 'Peter', 'Alin', 'Mich
 list_name_female = ['Inessa', 'Alana', 'Goncalina', 'Riffka', 'Stepheni', 'Danika', 'Katherine', 'Marie', 'Shae', 'Elisa']
 list_surname = ['Degryse', 'Tzukan', 'Hopcraft', 'Mothias', 'Cizadlo', 'Ingebret', 'Lopes', 'Dragomir', 'Desjardins', 'Ramsdinska', 'Beilstein', 'Hoffman', 'Graire', 'Kudeuske', 'Davok', 'Eriksson', 'Blovska']
 list_countries = ['Antegria', 'Impor', 'Obristan', 'Kolechia', 'Republia']
-list_mistakes = ['incor_date', 'incor_sex', 'incor_name', 'over_date', 'incor_country', 'wr_country']
+list_mistakes = ['incor_date', 'incor_sex','over_date', 'incor_country', 'wr_country']
 list_incor_date = ['incor_day', 'incor_month', 'incor_year']
 list_incor_country=['Antagria', 'Impar', 'Obriсtan', 'Kojechia', 'Republїa']
 list_incor_name_male=['Fracoиs', 'Tcukan', 'Arran', 'Claudy', 'Pettr', 'Alan', 'Mikhael', 'Niktta', 'Gregori', 'Eygen', 'Tomos', 'Biorn', 'Jonn', 'Symkn', 'Vinci', 'Danik', 'Kardon', 'Mescof', 'Michail', 'Nathon', '`Filipэ']
@@ -95,7 +95,7 @@ while endgame == 2:
         true_answer = random.randint(0,1)
         sex = random.randint(0,1)
         if true_answer == 0:
-            mistake = list_mistakes[random.randint(0,5)]
+            mistake = list_mistakes[random.randint(0,4)]
             if sex == 1:
                 name = list_name_male[random.randint(0,20)]
                 sex = 'MALE'
@@ -217,9 +217,9 @@ while endgame == 2:
                 if errtype == 1:
                     surname=list_incor_surname[list_surname.find(surname)]
                 if errtype == 2 and sex == 0:
-                    name=list_incor_name_female(list_name_female.find(name))
+                    name=list_incor_name_female[list_name_female.find(name)]
                 if errtype == 2 and sex ==1:
-                    name=list_incor_name_male(list_name_male.find(name))
+                    name=list_incor_name_male[list_name_male.find(name)]
                 return(country, surname, name)
                 
         if true_answer == 1:
