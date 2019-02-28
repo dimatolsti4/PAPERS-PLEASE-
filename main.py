@@ -188,9 +188,6 @@ while endgame == 2:
             elif mistake == 'incor_country':
                 surname = list_surname[random.randint(0,16)]
                 country = list_countries[random.randint(0,4)]
-                counrty1 = list_countries[random.randint(0,4)]
-                while country == counrty1:
-                     counrty1 = list_countries[random.randint(0,4)]
                 birth_day = str(random.randint(1,28))
                 birth_month = str(random.randint(1,12))
                 birth_year = str(random.randint(1950,2004))
@@ -206,27 +203,29 @@ while endgame == 2:
                 passport = passport.replace('DATE-OF-BIRTH:                                    ', birth_date1)
                 sex1 = 'SEX: ' + sex + ' ' * (45 - len(sex))
                 passport = passport.replace('SEX:                                              ', sex1)
-                country1 = 'COUNTRY: ' + country1 + ' ' * (41 - len(country1))
+                country1 = 'COUNTRY: ' + country + ' ' * (41 - len(country))
                 passport = passport.replace('COUNTRY:                                          ', country1)
                 ex_date1 = 'EXPIRATION-DATE: ' + ex_date + ' ' * (33 - len(ex_date))
                 passport = passport.replace('EXPIRATION-DATE:                                  ', ex_date1)
+                country2 = country
+                while country2 == country:
+                    country = list_countries[random.randint(0,4)]
             elif mistake == 'wr_country' :
                 errtype = random.randint(0,2)
                 if errtype == 0:
-                    country=list_incor_country[list_countries.find(country)]
+                    country=list_incor_country[list_countries.index(country)]
                     surname = list_surname[random.randint(0,16)]
-                if errtype == 1:
-                    surname=list_incor_surname[list_surname.find(surname)]
+                elif errtype == 1:
+                    surname=list_incor_surname[list_surname.index(surname)]
                     country = list_countries[random.randint(0,4)]
-                if errtype == 2 and sex == 0:
-                    name=list_incor_name_female[list_name_female.find(name)]
-                    country = list_countries[random.randint(0,4)]
-                    surname = list_surname[random.randint(0,16)]
-                if errtype == 2 and sex ==1:
-                    name=list_incor_name_male[list_name_male.find(name)]
+                elif errtype == 2 and sex == 1:
+                    name=list_incor_name_female[list_name_female.index(name)]
                     country = list_countries[random.randint(0,4)]
                     surname = list_surname[random.randint(0,16)]
-                return(country, surname, name)
+                else:
+                    name=list_incor_name_male[list_name_male.index(name)]
+                    country = list_countries[random.randint(0,4)]
+                    surname = list_surname[random.randint(0,16)]
                 birth_day = str(random.randint(1,28))
                 birth_month = str(random.randint(1,12))
                 birth_year = str(random.randint(1950,2004))
