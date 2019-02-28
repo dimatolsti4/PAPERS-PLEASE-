@@ -221,6 +221,27 @@ while endgame == 2:
                 if errtype == 2 and sex ==1:
                     name=list_incor_name_male[list_name_male.find(name)]
                 return(country, surname, name)
+                surname = list_surname[random.randint(0,16)]
+                country = list_countries[random.randint(0,4)]
+                birth_day = str(random.randint(1,28))
+                birth_month = str(random.randint(1,12))
+                birth_year = str(random.randint(1950,2004))
+                birth_date = birth_day + '.' + birth_month + '.' + birth_year
+                name = surname + ',' + name
+                ex_day = str(random.randint(1,28))
+                ex_month = str(random.randint(4,12))
+                ex_year = str(random.randint(2019,2025))
+                ex_date = ex_day + '.' + ex_month + '.' + ex_year
+                name1 = 'NAME: ' + name + ' ' * (44 - len(name))
+                passport = passport.replace('NAME:                                             ', name1)
+                birth_date1 = 'DATE-OF-BIRTH: ' + birth_date + ' ' * (35 - len(birth_date))
+                passport = passport.replace('DATE-OF-BIRTH:                                    ', birth_date1)
+                sex1 = 'SEX: ' + sex + ' ' * (45 - len(sex))
+                passport = passport.replace('SEX:                                              ', sex1)
+                country1 = 'COUNTRY: ' + country + ' ' * (41 - len(country))
+                passport = passport.replace('COUNTRY:                                          ', country1)
+                ex_date1 = 'EXPIRATION-DATE: ' + ex_date + ' ' * (33 - len(ex_date))
+                passport = passport.replace('EXPIRATION-DATE:                                  ', ex_date1)
                 
         if true_answer == 1:
             if sex == 1:
