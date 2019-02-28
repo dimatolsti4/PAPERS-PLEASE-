@@ -4,7 +4,7 @@ list_name_male = ['Fracois', 'Tzukan', 'Arron', 'Claude', 'Peter', 'Alin', 'Mich
 list_name_female = ['Inessa', 'Alana', 'Goncalina', 'Riffka', 'Stepheni', 'Danika', 'Katherine', 'Marie', 'Shae', 'Elisa']
 list_surname = ['Degryse', 'Tzukan', 'Hopcraft', 'Mothias', 'Cizadlo', 'Ingebret', 'Lopes', 'Dragomir', 'Desjardins', 'Ramsdinska', 'Beilstein', 'Hoffman', 'Graire', 'Kudeuske', 'Davok', 'Eriksson', 'Blovska']
 list_countries = ['Antegria', 'Impor', 'Obristan', 'Kolechia', 'Republia']
-list_mistakes = ['incor_date', 'incor_sex','over_date', 'incor_country', 'wr_country']
+list_mistakes = ['incor_date', 'incor_sex','over_date', 'incor_country', 'wr_country', 'incor_name', 'incor_surname']
 list_incor_date = ['incor_day', 'incor_month', 'incor_year']
 list_incor_country=['Antagria', 'Impar', 'Obriсtan', 'Kojechia', 'Republїa']
 list_incor_name_male=['Fracoиs', 'Tcukan', 'Arran', 'Claudy', 'Pettr', 'Alan', 'Mikhael', 'Niktta', 'Gregori', 'Eygen', 'Tomos', 'Biorn', 'Jonn', 'Symkn', 'Vinci', 'Danik', 'Kardon', 'Mescof', 'Michail', 'Nathon', '`Filipэ']
@@ -95,7 +95,7 @@ while endgame == 2:
         true_answer = random.randint(0,1)
         sex = random.randint(0,1)
         if true_answer == 0:
-            mistake = list_mistakes[random.randint(0,4)]
+            mistake = list_mistakes[random.randint(0,6)]
             if sex == 1:
                 name = list_name_male[random.randint(0,20)]
                 sex = 'MALE'
@@ -210,22 +210,11 @@ while endgame == 2:
                 country2 = country
                 while country2 == country:
                     country = list_countries[random.randint(0,4)]
-            elif mistake == 'wr_country' :
-                errtype = random.randint(0,2)
-                if errtype == 0:
-                    country=list_incor_country[list_countries.index(country)]
-                    surname = list_surname[random.randint(0,16)]
-                elif errtype == 1:
-                    surname=list_incor_surname[list_surname.index(surname)]
-                    country = list_countries[random.randint(0,4)]
-                elif errtype == 2 and sex == 1:
-                    name=list_incor_name_female[list_name_female.index(name)]
-                    country = list_countries[random.randint(0,4)]
-                    surname = list_surname[random.randint(0,16)]
-                else:
-                    name=list_incor_name_male[list_name_male.index(name)]
-                    country = list_countries[random.randint(0,4)]
-                    surname = list_surname[random.randint(0,16)]
+            elif mistake == 'wr_country':
+                country_num = random.randint(0,4)
+                country1 = list_incor_country[country_num]
+                country = list_countries[country_num]
+                surname = list_surname[random.randint(0,16)]
                 birth_day = str(random.randint(1,28))
                 birth_month = str(random.randint(1,12))
                 birth_year = str(random.randint(1950,2004))
@@ -241,11 +230,74 @@ while endgame == 2:
                 passport = passport.replace('DATE-OF-BIRTH:                                    ', birth_date1)
                 sex1 = 'SEX: ' + sex + ' ' * (45 - len(sex))
                 passport = passport.replace('SEX:                                              ', sex1)
+                country1 = 'COUNTRY: ' + country1 + ' ' * (41 - len(country1))
+                passport = passport.replace('COUNTRY:                                          ', country1)
+                ex_date1 = 'EXPIRATION-DATE: ' + ex_date + ' ' * (33 - len(ex_date))
+                passport = passport.replace('EXPIRATION-DATE:                                  ', ex_date1)
+            elif mistake == 'incor_name':
+                if sex == 1:
+                    name_num = random.randint(0,20)
+                    name = list_name_male[name_num]
+                    name1 = list_incor_name_male[name_num]
+                else:
+                    name_num = random.randint(0,8)
+                    name = list_name_female[name_num]
+                    name1 = list_incor_name_female[name_num]
+                surname = list_surname[random.randint(0,16)]
+                country = list_countries[random.randint(0,4)]
+                birth_day = str(random.randint(1,28))
+                birth_month = str(random.randint(1,12))
+                birth_year = str(random.randint(1950,2004))
+                birth_date = birth_day + '.' + birth_month + '.' + birth_year
+                name = surname + ',' + name
+                name1 = surname + ',' + name1
+                ex_day = str(random.randint(1,28))
+                ex_month = str(random.randint(4,12))
+                ex_year = str(random.randint(2019,2025))
+                ex_date = ex_day + '.' + ex_month + '.' + ex_year
+                name1 = 'NAME: ' + name1 + ' ' * (44 - len(name))
+                passport = passport.replace('NAME:                                             ', name1)
+                birth_date1 = 'DATE-OF-BIRTH: ' + birth_date + ' ' * (35 - len(birth_date))
+                passport = passport.replace('DATE-OF-BIRTH:                                    ', birth_date1)
+                sex1 = 'SEX: ' + sex + ' ' * (45 - len(sex))
+                passport = passport.replace('SEX:                                              ', sex1)
                 country1 = 'COUNTRY: ' + country + ' ' * (41 - len(country))
                 passport = passport.replace('COUNTRY:                                          ', country1)
                 ex_date1 = 'EXPIRATION-DATE: ' + ex_date + ' ' * (33 - len(ex_date))
                 passport = passport.replace('EXPIRATION-DATE:                                  ', ex_date1)
-                
+            else:
+                if sex == 1:
+                name = list_name_male[random.randint(0,20)]
+                sex = 'MALE'
+                passport = open("passportmale.txt").read()
+            else:
+                name = list_name_female[random.randint(0,8)]
+                sex = 'FEMALE'
+                passport = open("passportfemale.txt").read()
+                surname_num = random.randint(0,16)
+                surname = list_surname[surname_num]
+                surname1 = list_incor_surname[surname_num]
+                country = list_countries[random.randint(0,4)]
+                birth_day = str(random.randint(1,28))
+                birth_month = str(random.randint(1,12))
+                birth_year = str(random.randint(1950,2004))
+                birth_date = birth_day + '.' + birth_month + '.' + birth_year
+                name = surname + ',' + name
+                name1 = surname1 + ',' + name
+                ex_day = str(random.randint(1,28))
+                ex_month = str(random.randint(4,12))
+                ex_year = str(random.randint(2019,2025))
+                ex_date = ex_day + '.' + ex_month + '.' + ex_year
+                name1 = 'NAME: ' + name1 + ' ' * (44 - len(name))
+                passport = passport.replace('NAME:                                             ', name1)
+                birth_date1 = 'DATE-OF-BIRTH: ' + birth_date + ' ' * (35 - len(birth_date))
+                passport = passport.replace('DATE-OF-BIRTH:                                    ', birth_date1)
+                sex1 = 'SEX: ' + sex + ' ' * (45 - len(sex))
+                passport = passport.replace('SEX:                                              ', sex1)
+                country1 = 'COUNTRY: ' + country + ' ' * (41 - len(country))
+                passport = passport.replace('COUNTRY:                                          ', country1)
+                ex_date1 = 'EXPIRATION-DATE: ' + ex_date + ' ' * (33 - len(ex_date))
+                passport = passport.replace('EXPIRATION-DATE:                                  ', ex_date1)            
         if true_answer == 1:
             if sex == 1:
                 name = list_name_male[random.randint(0,20)]
