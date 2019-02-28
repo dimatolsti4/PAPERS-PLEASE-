@@ -5,8 +5,11 @@ list_name_female = ['Inessa', 'Alana', 'Goncalina', 'Riffka', 'Stepheni', 'Danik
 list_surname = ['Degryse', 'Tzukan', 'Hopcraft', 'Mothias', 'Cizadlo', 'Ingebret', 'Lopes', 'Dragomir', 'Desjardins', 'Ramsdinska', 'Beilstein', 'Hoffman', 'Graire', 'Kudeuske', 'Davok', 'Eriksson', 'Blovska']
 list_countries = ['Antegria', 'Impor', 'Obristan', 'Kolechia', 'Republia']
 list_mistakes = ['incor_date', 'incor_sex', 'incor_name', 'over_date', 'incor_country', 'wr_country']
-
 list_incor_date = ['incor_day', 'incor_month', 'incor_year']
+list_incor_country=['Antagria', 'Impar', 'Obriсtan', 'Kojechia', 'Republїa']
+list_incor_name_male=['Fracoиs', 'Tcukan', 'Arran', 'Claudy', 'Pettr', 'Alan', 'Mikhael', 'Niktta', 'Gregori', 'Eygen', 'Tomos', 'Biorn', 'Jonn', 'Symkn', 'Vinci', 'Danik', 'Kardon', 'Mescof', 'Michail', 'Nathon', '`Filipэ']
+list_incor_surname=['Digruse', 'Tsukan', 'Hopcratt', 'Modhias', 'Cizatlo', 'Ingabret', 'Lapes', 'Dragamir', 'Desjadins', 'Ramddinska', 'Beilstain', 'Hotfman', 'Craire', 'Kudeyske', 'Dovok', 'Errikson', 'Blovsta']
+list_incor_name_female=['Innesia', 'Aluna', 'Gancalina', 'Rifkka', 'Stephhen', 'Daneka', 'Katterine', 'Marre', 'Shoe', 'Eliza']
 
 money = 100
 son = 1
@@ -86,7 +89,7 @@ while endgame == 2:
     num_of_correct = 0
     num_of_incorrect = 0
     vis_num = 0
-    while start_time > cur_time - 60 or num_of_incorrect < 4:
+    while start_time > cur_time - 30 or num_of_incorrect == 3:
         vis_num = vis_num + 1
         print('Visitor number: ', vis_num)
         true_answer = random.randint(0,1)
@@ -207,7 +210,17 @@ while endgame == 2:
                 passport = passport.replace('COUNTRY:                                          ', country1)
                 ex_date1 = 'EXPIRATION-DATE: ' + ex_date + ' ' * (33 - len(ex_date))
                 passport = passport.replace('EXPIRATION-DATE:                                  ', ex_date1)
-
+            elif mistake == 'wr_country' :
+                errtype = random.randint(0,2)
+                if errtype == 0:
+                    country=list_incor_country[list_countries.find(country)]
+                if errtype == 1:
+                    surname=list_incor_surname[list_countries.find(surname)]
+                if errtype == 2 and sex == 0:
+                    name=list_incor_name_female(list_name_female.find(name))
+                if errtype == 2 and sex ==1:
+                    name=list_incor_name_male(list_name_male.find(name))
+                return(country, surname, name)
                 
         if true_answer == 1:
             if sex == 1:
