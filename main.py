@@ -249,8 +249,8 @@ while endgame == 2:
                 birth_month = str(random.randint(1,12))
                 birth_year = str(random.randint(1950,2004))
                 birth_date = birth_day + '.' + birth_month + '.' + birth_year
-                name = surname + ',' + name
                 name1 = surname + ',' + name1
+                name = surname + ',' + name
                 ex_day = str(random.randint(1,28))
                 ex_month = str(random.randint(4,12))
                 ex_year = str(random.randint(2019,2025))
@@ -282,8 +282,8 @@ while endgame == 2:
                 birth_month = str(random.randint(1,12))
                 birth_year = str(random.randint(1950,2004))
                 birth_date = birth_day + '.' + birth_month + '.' + birth_year
-                name = surname + ',' + name
                 name1 = surname1 + ',' + name
+                name = surname + ',' + name
                 ex_day = str(random.randint(1,28))
                 ex_month = str(random.randint(4,12))
                 ex_year = str(random.randint(2019,2025))
