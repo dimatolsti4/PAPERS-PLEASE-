@@ -5,6 +5,7 @@ list_name_female = ['Inessa', 'Alana', 'Goncalina', 'Riffka', 'Stepheni', 'Danik
 list_surname = ['Degryse', 'Tzukan', 'Hopcraft', 'Mothias', 'Cizadlo', 'Ingebret', 'Lopes', 'Dragomir', 'Desjardins', 'Ramsdinska', 'Beilstein', 'Hoffman', 'Graire', 'Kudeuske', 'Davok', 'Eriksson', 'Blovska']
 list_countries = ['Antegria', 'Impor', 'Obristan', 'Kolechia', 'Republia']
 list_mistakes = ['incor_date', 'incor_sex', 'incor_name', 'over_date', 'incor_country', 'wr_country']
+
 list_incor_date = ['incor_day', 'incor_month', 'incor_year']
 
 money = 100
@@ -135,9 +136,9 @@ while endgame == 2:
                 passport = passport.replace('EXPIRATION-DATE:                                  ', ex_date1)
             elif mistake == 'incor_sex':
                 if sex == 1:
-                    sex = 0
+                    sex1 = 'FEMALE'
                 else:
-                    sex = 1
+                    sex1 = 'MALE'
                 surname = list_surname[random.randint(0,16)]
                 country = list_countries[random.randint(0,4)]
                 birth_day = str(random.randint(1,28))
@@ -153,12 +154,12 @@ while endgame == 2:
                 passport = passport.replace('NAME:                                             ', name1)
                 birth_date1 = 'DATE-OF-BIRTH: ' + birth_date + ' ' * (35 - len(birth_date))
                 passport = passport.replace('DATE-OF-BIRTH:                                    ', birth_date1)
-                sex1 = 'SEX: ' + sex + ' ' * (45 - len(sex))
+                sex1 = 'SEX: ' + sex1 + ' ' * (45 - len(sex))
                 passport = passport.replace('SEX:                                              ', sex1)
                 country1 = 'COUNTRY: ' + country + ' ' * (41 - len(country))
                 passport = passport.replace('COUNTRY:                                          ', country1)
                 ex_date1 = 'EXPIRATION-DATE: ' + ex_date + ' ' * (33 - len(ex_date))
-                passport = passport.replace('EXPIRATION-DATE:                                  ', ex_date1)       
+                passport = passport.replace('EXPIRATION-DATE:                                  ', ex_date1)
             elif mistake == 'over_date':
                 surname = list_surname[random.randint(0,16)]
                 country = list_countries[random.randint(0,4)]
@@ -185,8 +186,8 @@ while endgame == 2:
                 surname = list_surname[random.randint(0,16)]
                 country = list_countries[random.randint(0,4)]
                 counrty1 = list_countries[random.randint(0,4)]
-                    while country == country1:
-                        counrty1 = list_countries[random.randint(0,4)]
+                while country == counrty1:
+                     counrty1 = list_countries[random.randint(0,4)]
                 birth_day = str(random.randint(1,28))
                 birth_month = str(random.randint(1,12))
                 birth_year = str(random.randint(1950,2004))
@@ -202,7 +203,7 @@ while endgame == 2:
                 passport = passport.replace('DATE-OF-BIRTH:                                    ', birth_date1)
                 sex1 = 'SEX: ' + sex + ' ' * (45 - len(sex))
                 passport = passport.replace('SEX:                                              ', sex1)
-                country1 = 'COUNTRY: ' + country1 + ' ' * (41 - len(country))
+                country1 = 'COUNTRY: ' + country1 + ' ' * (41 - len(country1))
                 passport = passport.replace('COUNTRY:                                          ', country1)
                 ex_date1 = 'EXPIRATION-DATE: ' + ex_date + ' ' * (33 - len(ex_date))
                 passport = passport.replace('EXPIRATION-DATE:                                  ', ex_date1)
@@ -211,7 +212,7 @@ while endgame == 2:
         if true_answer == 1:
             if sex == 1:
                 name = list_name_male[random.randint(0,20)]
-                sex = 'MELE'
+                sex = 'MALE'
                 passport = open("passportmale.txt").read()
             else:
                 name = list_name_female[random.randint(0,8)]
@@ -225,7 +226,7 @@ while endgame == 2:
             birth_date = birth_day + '.' + birth_month + '.' + birth_year
             name = surname + ',' + name
             ex_day = str(random.randint(1,28))
-            ex_month = str(random.randint(1,12))
+            ex_month = str(random.randint(4,12))
             ex_year = str(random.randint(2019,2025))
             ex_date = ex_day + '.' + ex_month + '.' + ex_year
             name1 = 'NAME: ' + name + ' ' * (44 - len(name))
@@ -265,6 +266,7 @@ while endgame == 2:
                 num_of_incorrect = num_of_incorrect + 1
                 print('INCORRECT!')
                 print('PAY MORE ATTENTION!')
+                print(mistake)
         cur_time = time.time()
     income = (num_of_correct - num_of_incorrect) * 25
     if num_of_incorrect == 3:
