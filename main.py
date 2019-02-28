@@ -215,7 +215,7 @@ while endgame == 2:
                 if errtype == 0:
                     country=list_incor_country[list_countries.find(country)]
                 if errtype == 1:
-                    surname=list_incor_surname[list_countries.find(surname)]
+                    surname=list_incor_surname[list_surname.find(surname)]
                 if errtype == 2 and sex == 0:
                     name=list_incor_name_female(list_name_female.find(name))
                 if errtype == 2 and sex ==1:
