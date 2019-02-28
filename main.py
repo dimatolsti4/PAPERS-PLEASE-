@@ -86,7 +86,7 @@ while endgame == 2:
     num_of_correct = 0
     num_of_incorrect = 0
     vis_num = 0
-    while start_time > cur_time - 60 or num_of_incorrect == 3:
+    while start_time > cur_time - 60 or num_of_incorrect < 4:
         vis_num = vis_num + 1
         print('Visitor number: ', vis_num)
         true_answer = random.randint(0,1)
