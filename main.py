@@ -267,13 +267,13 @@ while endgame == 2:
                 passport = passport.replace('EXPIRATION-DATE:                                  ', ex_date1)
             else:
                 if sex == 1:
-                name = list_name_male[random.randint(0,20)]
-                sex = 'MALE'
-                passport = open("passportmale.txt").read()
-            else:
-                name = list_name_female[random.randint(0,8)]
-                sex = 'FEMALE'
-                passport = open("passportfemale.txt").read()
+                    name = list_name_male[random.randint(0,20)]
+                    sex = 'MALE'
+                    passport = open("passportmale.txt").read()
+                else:
+                    name = list_name_female[random.randint(0,8)]
+                    sex = 'FEMALE'
+                    passport = open("passportfemale.txt").read()
                 surname_num = random.randint(0,16)
                 surname = list_surname[surname_num]
                 surname1 = list_incor_surname[surname_num]
