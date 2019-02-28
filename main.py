@@ -89,7 +89,7 @@ while endgame == 2:
     num_of_correct = 0
     num_of_incorrect = 0
     vis_num = 0
-    while start_time > cur_time - 30 and num_of_incorrect < 4:
+    while start_time > cur_time - 30 and num_of_incorrect < 3:
         vis_num = vis_num + 1
         print('Visitor number: ', vis_num)
         true_answer = random.randint(0,1)
@@ -358,7 +358,7 @@ while endgame == 2:
                 print(mistake)
         cur_time = time.time()
     income = (num_of_correct - num_of_incorrect) * 25
-    if num_of_incorrect == 3:
+    if num_of_incorrect > 2:
         income = 0
         print('YOU WILL NOT RECIVE MONEY FOR TODAY BECOUSE OF TOO MANY MISTAKES')
     print('You earned:', income)
