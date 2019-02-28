@@ -89,11 +89,12 @@ while endgame == 2:
     num_of_correct = 0
     num_of_incorrect = 0
     vis_num = 0
-    while start_time > cur_time - 30 and num_of_incorrect < 3:
+    while start_time > cur_time - 30 and num_of_incorrect < 4:
         vis_num = vis_num + 1
         print('Visitor number: ', vis_num)
         true_answer = random.randint(0,1)
         sex = random.randint(0,1)
+                
         if true_answer == 0:
             mistake = list_mistakes[random.randint(0,6)]
             if sex == 1:
@@ -356,9 +357,19 @@ while endgame == 2:
                 print('INCORRECT!')
                 print('PAY MORE ATTENTION!')
                 print(mistake)
+        if true_answer == 0 and answer == 0 :
+            chance = (random.randint(0,100))
+            bribe = (random.randint(30,100))
+            if chance <= 20:
+                print('You are offered a bribe:',bribe,'$')
+                print('1 To take a bribe or 0 to decline')
+                ans=input()
+                if ans == 1:
+                    income += bribe
+                    income_notfair += bribe
         cur_time = time.time()
     income = (num_of_correct - num_of_incorrect) * 25
-    if num_of_incorrect > 2:
+    if num_of_incorrect >= 3:
         income = 0
         print('YOU WILL NOT RECIVE MONEY FOR TODAY BECOUSE OF TOO MANY MISTAKES')
     print('You earned:', income)
