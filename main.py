@@ -214,15 +214,19 @@ while endgame == 2:
                 errtype = random.randint(0,2)
                 if errtype == 0:
                     country=list_incor_country[list_countries.find(country)]
+                    surname = list_surname[random.randint(0,16)]
                 if errtype == 1:
                     surname=list_incor_surname[list_surname.find(surname)]
+                    country = list_countries[random.randint(0,4)]
                 if errtype == 2 and sex == 0:
                     name=list_incor_name_female[list_name_female.find(name)]
+                    country = list_countries[random.randint(0,4)]
+                    surname = list_surname[random.randint(0,16)]
                 if errtype == 2 and sex ==1:
                     name=list_incor_name_male[list_name_male.find(name)]
+                    country = list_countries[random.randint(0,4)]
+                    surname = list_surname[random.randint(0,16)]
                 return(country, surname, name)
-                surname = list_surname[random.randint(0,16)]
-                country = list_countries[random.randint(0,4)]
                 birth_day = str(random.randint(1,28))
                 birth_month = str(random.randint(1,12))
                 birth_year = str(random.randint(1950,2004))
