@@ -226,8 +226,8 @@ while endgame == 2:
         passport = passport.replace('DATE-OF-BIRTH:                                    ', birth_date1)
         passport = passport.replace('SEX:                                              ', sex1)
         passport = passport.replace('COUNTRY:                                          ', country1)
-        passport = passport.replace('EXPIRATION-DATE:              ' /
-                                    '                   ', ex_date1)
+        passport = passport.replace('EXPIRATION-DATE:                                  ', ex_date1)
+
         print(passport)
         print('VISITOR INFORMATION:')
         print('NAME: ', name)
