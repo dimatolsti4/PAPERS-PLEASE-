@@ -1,16 +1,40 @@
 import time
 import random
+list_name_male = ['Fracois', 'Tzukan', 'Arron', 'Claude', 'Peter',
+                  'Alin', 'Michael', 'Nikita', 'Gregory', 'Eugen',
+                  'Tomas', 'Bjorn', 'John', 'Simon', 'Vince', 'Danic',
+                  'Kordon', 'Messof', 'Mikhail', 'Nathan', 'Filipe']
 
-list_name_male = ['Fracois', 'Tzukan', 'Arron', 'Claude', 'Peter', 'Alin', 'Michael', 'Nikita', 'Gregory', 'Eugen', 'Tomas', 'Bjorn', 'John', 'Simon', 'Vince', 'Danic', 'Kordon', 'Messof', 'Mikhail', 'Nathan', 'Filipe']
-list_name_female = ['Inessa', 'Alana', 'Goncalina', 'Riffka', 'Stepheni', 'Danika', 'Katherine', 'Marie', 'Shae', 'Elisa']
-list_surname = ['Degryse', 'Tzukan', 'Hopcraft', 'Mothias', 'Cizadlo', 'Ingebret', 'Lopes', 'Dragomir', 'Desjardins', 'Ramsdinska', 'Beilstein', 'Hoffman', 'Graire', 'Kudeuske', 'Davok', 'Eriksson', 'Blovska']
+list_name_female = ['Inessa', 'Alana', 'Goncalina', 'Riffka', 'Stepheni',
+                    'Danika', 'Katherine', 'Marie', 'Shae', 'Elisa']
+
+list_surname = ['Degryse', 'Tzukan', 'Hopcraft', 'Mothias', 'Cizadlo',
+                'Ingebret', 'Lopes', 'Dragomir', 'Desjardins',
+                'Ramsdinska', 'Beilstein', 'Hoffman', 'Graire', 'Kudeuske',
+                'Davok', 'Eriksson', 'Blovska']
+
 list_countries = ['Antegria', 'Impor', 'Obristan', 'Kolechia', 'Republia']
-list_mistakes = ['incor_date', 'incor_sex', 'over_date', 'incor_country', 'wr_country', 'incor_name', 'incor_surname']
+
+list_mistakes = ['incor_date', 'incor_sex', 'over_date', 'incor_country',
+                 'wr_country', 'incor_name', 'incor_surname']
+
 list_incor_date = ['incor_day', 'incor_month', 'incor_year']
+
 list_incor_country = ['Antagria', 'Impar', 'Obriсtan', 'Kojechia', 'Republїa']
-list_incor_name_male = ['Fracoиs', 'Tcukan', 'Arran', 'Claudy', 'Pettr', 'Alan', 'Mikhael', 'Niktta', 'Gregori', 'Eygen', 'Tomos', 'Biorn', 'Jonn', 'Symkn', 'Vinci', 'Danik', 'Kardon', 'Mescof', 'Michail', 'Nathon', '`Filipэ']
-list_incor_surname = ['Digruse', 'Tsukan', 'Hopcratt', 'Modhias', 'Cizatlo', 'Ingabret', 'Lapes', 'Dragamir', 'Desjadins', 'Ramddinska', 'Beilstain', 'Hotfman', 'Craire', 'Kudeyske', 'Dovok', 'Errikson', 'Blovsta']
-list_incor_name_female = ['Innesia', 'Aluna', 'Gancalina', 'Rifkka', 'Stephhen', 'Daneka', 'Katterine', 'Marre', 'Shoe', 'Eliza']
+
+list_incor_name_male = ['Fracoиs', 'Tcukan', 'Arran', 'Claudy', 'Pettr',
+                        'Alan', 'Mikhael', 'Niktta', 'Gregori', 'Eygen',
+                        'Tomos', 'Biorn', 'Jonn', 'Symkn', 'Vinci', 'Danik',
+                        'Kardon', 'Mescof', 'Michail', 'Nathon', '`Filipэ']
+
+list_incor_surname = ['Digruse', 'Tsukan', 'Hopcratt', 'Modhias', 'Cizatlo',
+                      'Ingabret', 'Lapes', 'Dragamir', 'Desjadins',
+                      'Ramddinska', 'Beilstain', 'Hotfman', 'Craire',
+                      'Kudeyske', 'Dovok', 'Errikson', 'Blovsta']
+
+list_incor_name_female = ['Innesia', 'Aluna', 'Gancalina', 'Rifkka',
+                          'Stephhen', 'Daneka', 'Katterine', 'Marre',
+                          'Shoe', 'Eliza']
 
 money = 100
 son = 1
@@ -43,12 +67,17 @@ while dec != 1:
         print('Добро пожаловать!')
         print('Вы находитесь в авторитарной стране Арстотцка')
         print('Вы работаете на границе, Ваша задача - проверять паспорта')
-        print('Если вы видите несовпадение паспорта и информации о посетителе Вы должны отказать в пропуске')
-        print('Проверяйте совпадение имён, корректность даты рождения, соответсвие пола, совпадение страны')
+        print('Если вы видите несовпадение паспорта' /
+              'и информации о посетителе, Вы должны отказать в пропуске')
+        print('Проверяйте совпадение имён, корректность' /
+              'даты рождения, соответсвие пола, совпадение страны')
         print('Паспорт не должен быть просрочен(EXPIRATION-DATE)')
         print('Если Вам кажется, что никаких проблем нет, то пропускайте')
-        print('Ваша задача - проверять как можно больше человек каждый день и заработать 1000$ для выезда из страны с семьёй')
-        print('Если Вы не успеете сделать это за 15 дней, то на Вас сфабрикуют рапорт и посадят в тюрьму')
+        print('Ваша задача - проверять как можно больше' /
+              'человек каждый день и заработать 1000$ для' /
+              'выезда из страны с семьёй')
+        print('Если Вы не успеете сделать это за 15 дней, то' /
+              'на Вас сфабрикуют рапорт и посадят в тюрьму')
         print('Кроме того, Вы должны заботиться о своей семье')
         print('Удачи и слава Арстотцке!')
 
@@ -197,7 +226,8 @@ while endgame == 2:
         passport = passport.replace('DATE-OF-BIRTH:                                    ', birth_date1)
         passport = passport.replace('SEX:                                              ', sex1)
         passport = passport.replace('COUNTRY:                                          ', country1)
-        passport = passport.replace('EXPIRATION-DATE:                                  ', ex_date1)
+        passport = passport.replace('EXPIRATION-DATE:              ' /
+                                    '                   ', ex_date1)
         print(passport)
         print('VISITOR INFORMATION:')
         print('NAME: ', name)
@@ -323,4 +353,5 @@ elif endgame == 4:
     print('На Вас донесли в полицию и совсем скоро вы окажетесь в тюрьме...')
 else:
     print('ВЫ ПРОИГРАЛИ')
-    print('У Вас больше нет денег на оплату жилья и теперь Ваща семья погибнет на улице от морозов...')
+    print('У Вас больше нет денег на оплату жилья и теперь' /
+          'Ваша семья погибнет на улице от морозов...')
