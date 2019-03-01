@@ -216,7 +216,7 @@ while endgame == 2:
             else:
                 surname_num = random.randint(0, 16)
                 surname = list_surname[surname_num]
-                surname1 = list_incor_surname[surname_num]
+                surname_wr = list_incor_surname[surname_num]
                 country = list_countries[random.randint(0, 4)]
                 name_wr = surname_wr + ',' + name
                 name = surname + ',' + name
