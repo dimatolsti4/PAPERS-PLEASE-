@@ -108,10 +108,7 @@ while endgame == 2:
         true_answer = random.randint(0,1)
         sex = random.randint(0,1)
         ans=''
-                
-        if true_answer == 0:
-            mistake = list_mistakes[random.randint(0,6)]
-            if sex == 1:
+        if sex == 1:
                 name = list_name_male[random.randint(0,20)]
                 sex = 'МУЖ'
                 passport = open("passportmale.txt").read()
@@ -119,7 +116,10 @@ while endgame == 2:
                 name = list_name_female[random.randint(0,8)]
                 sex = 'ЖЕН'
                 passport = open("passportfemale.txt").read()
-
+        
+        if true_answer == 0:
+            mistake = list_mistakes[random.randint(0,6)]
+            
             if mistake == 'incor_date':
                 type_of_mistake = list_incor_date[random.randint(0,2)]
                 if type_of_mistake == 0:
@@ -143,15 +143,11 @@ while endgame == 2:
                 ex_year = str(random.randint(2019,2025))
                 ex_date = ex_day + '.' + ex_month + '.' + ex_year
                 name1 = 'NAME: ' + name + ' ' * (44 - len(name))
-                passport = passport.replace('NAME:                                             ', name1)
                 birth_date1 = 'DATE-OF-BIRTH: ' + birth_date + ' ' * (35 - len(birth_date))
-                passport = passport.replace('DATE-OF-BIRTH:                                    ', birth_date1)
                 sex1 = 'SEX: ' + sex + ' ' * (45 - len(sex))
-                passport = passport.replace('SEX:                                              ', sex1)
                 country1 = 'COUNTRY: ' + country + ' ' * (41 - len(country))
-                passport = passport.replace('COUNTRY:                                          ', country1)
                 ex_date1 = 'EXPIRATION-DATE: ' + ex_date + ' ' * (33 - len(ex_date))
-                passport = passport.replace('EXPIRATION-DATE:                                  ', ex_date1)
+            
             elif mistake == 'incor_sex':
                 if sex == 1:
                     sex1 = 'ЖЕН'
@@ -169,15 +165,11 @@ while endgame == 2:
                 ex_year = str(random.randint(2019,2025))
                 ex_date = ex_day + '.' + ex_month + '.' + ex_year
                 name1 = 'NAME: ' + name + ' ' * (44 - len(name))
-                passport = passport.replace('NAME:                                             ', name1)
                 birth_date1 = 'DATE-OF-BIRTH: ' + birth_date + ' ' * (35 - len(birth_date))
-                passport = passport.replace('DATE-OF-BIRTH:                                    ', birth_date1)
                 sex1 = 'SEX: ' + sex1 + ' ' * (45 - len(sex))
-                passport = passport.replace('SEX:                                              ', sex1)
                 country1 = 'COUNTRY: ' + country + ' ' * (41 - len(country))
-                passport = passport.replace('COUNTRY:                                          ', country1)
                 ex_date1 = 'EXPIRATION-DATE: ' + ex_date + ' ' * (33 - len(ex_date))
-                passport = passport.replace('EXPIRATION-DATE:                                  ', ex_date1)
+                
             elif mistake == 'over_date':
                 surname = list_surname[random.randint(0,16)]
                 country = list_countries[random.randint(0,4)]
@@ -191,15 +183,11 @@ while endgame == 2:
                 ex_year = str(random.randint(2012,2018))
                 ex_date = ex_day + '.' + ex_month + '.' + ex_year
                 name1 = 'NAME: ' + name + ' ' * (44 - len(name))
-                passport = passport.replace('NAME:                                             ', name1)
                 birth_date1 = 'DATE-OF-BIRTH: ' + birth_date + ' ' * (35 - len(birth_date))
-                passport = passport.replace('DATE-OF-BIRTH:                                    ', birth_date1)
                 sex1 = 'SEX: ' + sex + ' ' * (45 - len(sex))
-                passport = passport.replace('SEX:                                              ', sex1)
                 country1 = 'COUNTRY: ' + country + ' ' * (41 - len(country))
-                passport = passport.replace('COUNTRY:                                          ', country1)
                 ex_date1 = 'EXPIRATION-DATE: ' + ex_date + ' ' * (33 - len(ex_date))
-                passport = passport.replace('EXPIRATION-DATE:                                  ', ex_date1)
+            
             elif mistake == 'incor_country':
                 surname = list_surname[random.randint(0,16)]
                 country = list_countries[random.randint(0,4)]
@@ -213,18 +201,14 @@ while endgame == 2:
                 ex_year = str(random.randint(2019,2025))
                 ex_date = ex_day + '.' + ex_month + '.' + ex_year
                 name1 = 'NAME: ' + name + ' ' * (44 - len(name))
-                passport = passport.replace('NAME:                                             ', name1)
                 birth_date1 = 'DATE-OF-BIRTH: ' + birth_date + ' ' * (35 - len(birth_date))
-                passport = passport.replace('DATE-OF-BIRTH:                                    ', birth_date1)
                 sex1 = 'SEX: ' + sex + ' ' * (45 - len(sex))
-                passport = passport.replace('SEX:                                              ', sex1)
                 country1 = 'COUNTRY: ' + country + ' ' * (41 - len(country))
-                passport = passport.replace('COUNTRY:                                          ', country1)
                 ex_date1 = 'EXPIRATION-DATE: ' + ex_date + ' ' * (33 - len(ex_date))
-                passport = passport.replace('EXPIRATION-DATE:                                  ', ex_date1)
                 country2 = country
                 while country2 == country:
                     country = list_countries[random.randint(0,4)]
+            
             elif mistake == 'wr_country':
                 country_num = random.randint(0,4)
                 country1 = list_incor_country[country_num]
@@ -240,15 +224,11 @@ while endgame == 2:
                 ex_year = str(random.randint(2019,2025))
                 ex_date = ex_day + '.' + ex_month + '.' + ex_year
                 name1 = 'NAME: ' + name + ' ' * (44 - len(name))
-                passport = passport.replace('NAME:                                             ', name1)
                 birth_date1 = 'DATE-OF-BIRTH: ' + birth_date + ' ' * (35 - len(birth_date))
-                passport = passport.replace('DATE-OF-BIRTH:                                    ', birth_date1)
                 sex1 = 'SEX: ' + sex + ' ' * (45 - len(sex))
-                passport = passport.replace('SEX:                                              ', sex1)
                 country1 = 'COUNTRY: ' + country1 + ' ' * (41 - len(country1))
-                passport = passport.replace('COUNTRY:                                          ', country1)
                 ex_date1 = 'EXPIRATION-DATE: ' + ex_date + ' ' * (33 - len(ex_date))
-                passport = passport.replace('EXPIRATION-DATE:                                  ', ex_date1)
+            
             elif mistake == 'incor_name':
                 if sex == 1:
                     name_num = random.randint(0,20)
@@ -271,24 +251,12 @@ while endgame == 2:
                 ex_year = str(random.randint(2019,2025))
                 ex_date = ex_day + '.' + ex_month + '.' + ex_year
                 name1 = 'NAME: ' + name1 + ' ' * (44 - len(name1))
-                passport = passport.replace('NAME:                                             ', name1)
                 birth_date1 = 'DATE-OF-BIRTH: ' + birth_date + ' ' * (35 - len(birth_date))
-                passport = passport.replace('DATE-OF-BIRTH:                                    ', birth_date1)
                 sex1 = 'SEX: ' + sex + ' ' * (45 - len(sex))
-                passport = passport.replace('SEX:                                              ', sex1)
                 country1 = 'COUNTRY: ' + country + ' ' * (41 - len(country))
-                passport = passport.replace('COUNTRY:                                          ', country1)
                 ex_date1 = 'EXPIRATION-DATE: ' + ex_date + ' ' * (33 - len(ex_date))
-                passport = passport.replace('EXPIRATION-DATE:                                  ', ex_date1)
+            
             else:
-                if sex == 1:
-                    name = list_name_male[random.randint(0,20)]
-                    sex = 'MALE'
-                    passport = open("passportmale.txt").read()
-                else:
-                    name = list_name_female[random.randint(0,8)]
-                    sex = 'FEMALE'
-                    passport = open("passportfemale.txt").read()
                 surname_num = random.randint(0,16)
                 surname = list_surname[surname_num]
                 surname1 = list_incor_surname[surname_num]
@@ -304,24 +272,12 @@ while endgame == 2:
                 ex_year = str(random.randint(2019,2025))
                 ex_date = ex_day + '.' + ex_month + '.' + ex_year
                 name1 = 'NAME: ' + name1 + ' ' * (44 - len(name1))
-                passport = passport.replace('NAME:                                             ', name1)
                 birth_date1 = 'DATE-OF-BIRTH: ' + birth_date + ' ' * (35 - len(birth_date))
-                passport = passport.replace('DATE-OF-BIRTH:                                    ', birth_date1)
                 sex1 = 'SEX: ' + sex + ' ' * (45 - len(sex))
-                passport = passport.replace('SEX:                                              ', sex1)
                 country1 = 'COUNTRY: ' + country + ' ' * (41 - len(country))
-                passport = passport.replace('COUNTRY:                                          ', country1)
                 ex_date1 = 'EXPIRATION-DATE: ' + ex_date + ' ' * (33 - len(ex_date))
-                passport = passport.replace('EXPIRATION-DATE:                                  ', ex_date1)            
+        
         if true_answer == 1:
-            if sex == 1:
-                name = list_name_male[random.randint(0,20)]
-                sex = 'МУЖ'
-                passport = open("passportmale.txt").read()
-            else:
-                name = list_name_female[random.randint(0,8)]
-                sex = 'ЖЕН'
-                passport = open("passportfemale.txt").read()
             surname = list_surname[random.randint(0,16)]
             country = list_countries[random.randint(0,4)]
             birth_day = str(random.randint(1,28))
@@ -334,15 +290,16 @@ while endgame == 2:
             ex_year = str(random.randint(2019,2025))
             ex_date = ex_day + '.' + ex_month + '.' + ex_year
             name1 = 'NAME: ' + name + ' ' * (44 - len(name))
-            passport = passport.replace('NAME:                                             ', name1)
             birth_date1 = 'DATE-OF-BIRTH: ' + birth_date + ' ' * (35 - len(birth_date))
-            passport = passport.replace('DATE-OF-BIRTH:                                    ', birth_date1)
             sex1 = 'SEX: ' + sex + ' ' * (45 - len(sex))
-            passport = passport.replace('SEX:                                              ', sex1)
             country1 = 'COUNTRY: ' + country + ' ' * (41 - len(country))
-            passport = passport.replace('COUNTRY:                                          ', country1)
             ex_date1 = 'EXPIRATION-DATE: ' + ex_date + ' ' * (33 - len(ex_date))
-            passport = passport.replace('EXPIRATION-DATE:                                  ', ex_date1)
+        
+        passport = passport.replace('NAME:                                             ', name1)
+        passport = passport.replace('DATE-OF-BIRTH:                                    ', birth_date1)
+        passport = passport.replace('SEX:                                              ', sex1)
+        passport = passport.replace('COUNTRY:                                          ', country1)
+        passport = passport.replace('EXPIRATION-DATE:                                  ', ex_date1)    
         print(passport)
         print('VISITOR INFORMATION:')
         print('NAME: ', name)
