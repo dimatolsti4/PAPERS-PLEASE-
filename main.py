@@ -446,10 +446,15 @@ while endgame == 2:
         endgame = 1        
     
 if endgame == 1:
-    print()
+    print('CONGRATULATIONS!')
+    print('YOU WIN!')
+    print('You managed to earn enough mouney to move away from this country with your famaly!')
 elif endgame == 3:
-    print()
+    print('YOU LOST')
+    print('All your family members are dead and now you have no reason too live...')
 elif endgame == 4:
-    print()
+    print('YOU LOST')
+    print('Police found out all bad staff about you and you are going too be in jail very soon...')
 else:
-    print()
+    print('YOU LOST')
+    print('You do not have money too pay for the rent and now your famaly is going to die...')
