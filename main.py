@@ -1,15 +1,16 @@
-import time, random
+import time
+import random
 
 list_name_male = ['Fracois', 'Tzukan', 'Arron', 'Claude', 'Peter', 'Alin', 'Michael', 'Nikita', 'Gregory', 'Eugen', 'Tomas', 'Bjorn', 'John', 'Simon', 'Vince', 'Danic', 'Kordon', 'Messof', 'Mikhail', 'Nathan', 'Filipe']
 list_name_female = ['Inessa', 'Alana', 'Goncalina', 'Riffka', 'Stepheni', 'Danika', 'Katherine', 'Marie', 'Shae', 'Elisa']
 list_surname = ['Degryse', 'Tzukan', 'Hopcraft', 'Mothias', 'Cizadlo', 'Ingebret', 'Lopes', 'Dragomir', 'Desjardins', 'Ramsdinska', 'Beilstein', 'Hoffman', 'Graire', 'Kudeuske', 'Davok', 'Eriksson', 'Blovska']
 list_countries = ['Antegria', 'Impor', 'Obristan', 'Kolechia', 'Republia']
-list_mistakes = ['incor_date', 'incor_sex','over_date', 'incor_country', 'wr_country', 'incor_name', 'incor_surname']
+list_mistakes = ['incor_date', 'incor_sex', 'over_date', 'incor_country', 'wr_country', 'incor_name', 'incor_surname']
 list_incor_date = ['incor_day', 'incor_month', 'incor_year']
-list_incor_country=['Antagria', 'Impar', 'Obriсtan', 'Kojechia', 'Republїa']
-list_incor_name_male=['Fracoиs', 'Tcukan', 'Arran', 'Claudy', 'Pettr', 'Alan', 'Mikhael', 'Niktta', 'Gregori', 'Eygen', 'Tomos', 'Biorn', 'Jonn', 'Symkn', 'Vinci', 'Danik', 'Kardon', 'Mescof', 'Michail', 'Nathon', '`Filipэ']
-list_incor_surname=['Digruse', 'Tsukan', 'Hopcratt', 'Modhias', 'Cizatlo', 'Ingabret', 'Lapes', 'Dragamir', 'Desjadins', 'Ramddinska', 'Beilstain', 'Hotfman', 'Craire', 'Kudeyske', 'Dovok', 'Errikson', 'Blovsta']
-list_incor_name_female=['Innesia', 'Aluna', 'Gancalina', 'Rifkka', 'Stephhen', 'Daneka', 'Katterine', 'Marre', 'Shoe', 'Eliza']
+list_incor_country = ['Antagria', 'Impar', 'Obriсtan', 'Kojechia', 'Republїa']
+list_incor_name_male = ['Fracoиs', 'Tcukan', 'Arran', 'Claudy', 'Pettr', 'Alan', 'Mikhael', 'Niktta', 'Gregori', 'Eygen', 'Tomos', 'Biorn', 'Jonn', 'Symkn', 'Vinci', 'Danik', 'Kardon', 'Mescof', 'Michail', 'Nathon', '`Filipэ']
+list_incor_surname = ['Digruse', 'Tsukan', 'Hopcratt', 'Modhias', 'Cizatlo', 'Ingabret', 'Lapes', 'Dragamir', 'Desjadins', 'Ramddinska', 'Beilstain', 'Hotfman', 'Craire', 'Kudeyske', 'Dovok', 'Errikson', 'Blovsta']
+list_incor_name_female = ['Innesia', 'Aluna', 'Gancalina', 'Rifkka', 'Stephhen', 'Daneka', 'Katterine', 'Marre', 'Shoe', 'Eliza']
 
 money = 100
 son = 1
@@ -101,104 +102,104 @@ while endgame == 2:
     num_of_correct = 0
     num_of_incorrect = 0
     vis_num = 0
-    
+
     while start_time > cur_time - 30 and num_of_incorrect < 4:
         vis_num = vis_num + 1
         print('Посетитель номер: ', vis_num)
-        true_answer = random.randint(0,1)
-        sex = random.randint(0,1)
-        ans=''
+        true_answer = random.randint(0, 1)
+        sex = random.randint(0, 1)
+        ans = ''
         if sex == 1:
-                name = list_name_male[random.randint(0,20)]
-                sex = 'МУЖ'
-                passport = open("passportmale.txt").read()
-            else:
-                name = list_name_female[random.randint(0,8)]
-                sex = 'ЖЕН'
-                passport = open("passportfemale.txt").read()
-        
+            name = list_name_male[random.randint(0, 20)]
+            sex = 'МУЖ'
+            passport = open("passportmale.txt").read()
+        else:
+            name = list_name_female[random.randint(0, 8)]
+            sex = 'ЖЕН'
+            passport = open("passportfemale.txt").read()
+
         if true_answer == 0:
-            mistake = list_mistakes[random.randint(0,6)]
-            
+            mistake = list_mistakes[random.randint(0, 6)]
+
             if mistake == 'incor_date':
-                type_of_mistake = list_incor_date[random.randint(0,2)]
+                type_of_mistake = list_incor_date[random.randint(0, 2)]
                 if type_of_mistake == 0:
-                    birth_day = str(random.randint(32,33))
-                    birth_month = str(random.randint(1,12))
-                    birth_year = str(random.randint(1950,2004))
+                    birth_day = str(random.randint(32, 33))
+                    birth_month = str(random.randint(1, 12))
+                    birth_year = str(random.randint(1950, 2004))
                 elif type_of_mistake == 1:
-                    birth_day = str(random.randint(1,28))
+                    birth_day = str(random.randint(1, 28))
                     birth_month = '13'
-                    birth_year = str(random.randint(1950,2004))
+                    birth_year = str(random.randint(1950, 2004))
                 else:
-                    birth_day = str(random.randint(1,28))
-                    birth_month = str(random.randint(1,12))
-                    birth_year = str(random.randint(1850,1920))
-                surname = list_surname[random.randint(0,16)]
-                country = list_countries[random.randint(0,4)]
+                    birth_day = str(random.randint(1, 28))
+                    birth_month = str(random.randint(1, 12))
+                    birth_year = str(random.randint(1850, 1920))
+                surname = list_surname[random.randint(0, 16)]
+                country = list_countries[random.randint(0, 4)]
                 birth_date = birth_day + '.' + birth_month + '.' + birth_year
                 name = surname + ',' + name
-                ex_day = str(random.randint(1,28))
-                ex_month = str(random.randint(1,12))
-                ex_year = str(random.randint(2019,2025))
+                ex_day = str(random.randint(1, 28))
+                ex_month = str(random.randint(1, 12))
+                ex_year = str(random.randint(2019, 2025))
                 ex_date = ex_day + '.' + ex_month + '.' + ex_year
                 name1 = 'NAME: ' + name + ' ' * (44 - len(name))
                 birth_date1 = 'DATE-OF-BIRTH: ' + birth_date + ' ' * (35 - len(birth_date))
                 sex1 = 'SEX: ' + sex + ' ' * (45 - len(sex))
                 country1 = 'COUNTRY: ' + country + ' ' * (41 - len(country))
                 ex_date1 = 'EXPIRATION-DATE: ' + ex_date + ' ' * (33 - len(ex_date))
-            
+
             elif mistake == 'incor_sex':
                 if sex == 1:
                     sex1 = 'ЖЕН'
                 else:
                     sex1 = 'МУЖ'
-                surname = list_surname[random.randint(0,16)]
-                country = list_countries[random.randint(0,4)]
-                birth_day = str(random.randint(1,28))
-                birth_month = str(random.randint(1,12))
-                birth_year = str(random.randint(1950,2004))
+                surname = list_surname[random.randint(0, 16)]
+                country = list_countries[random.randint(0, 4)]
+                birth_day = str(random.randint(1, 28))
+                birth_month = str(random.randint(1, 12))
+                birth_year = str(random.randint(1950, 2004))
                 birth_date = birth_day + '.' + birth_month + '.' + birth_year
                 name = surname + ',' + name
-                ex_day = str(random.randint(1,28))
-                ex_month = str(random.randint(1,12))
-                ex_year = str(random.randint(2019,2025))
+                ex_day = str(random.randint(1, 28))
+                ex_month = str(random.randint(1, 12))
+                ex_year = str(random.randint(2019, 2025))
                 ex_date = ex_day + '.' + ex_month + '.' + ex_year
                 name1 = 'NAME: ' + name + ' ' * (44 - len(name))
                 birth_date1 = 'DATE-OF-BIRTH: ' + birth_date + ' ' * (35 - len(birth_date))
                 sex1 = 'SEX: ' + sex1 + ' ' * (45 - len(sex))
                 country1 = 'COUNTRY: ' + country + ' ' * (41 - len(country))
                 ex_date1 = 'EXPIRATION-DATE: ' + ex_date + ' ' * (33 - len(ex_date))
-                
+
             elif mistake == 'over_date':
-                surname = list_surname[random.randint(0,16)]
-                country = list_countries[random.randint(0,4)]
-                birth_day = str(random.randint(1,28))
-                birth_month = str(random.randint(1,12))
-                birth_year = str(random.randint(1950,2004))
+                surname = list_surname[random.randint(0, 16)]
+                country = list_countries[random.randint(0, 4)]
+                birth_day = str(random.randint(1, 28))
+                birth_month = str(random.randint(1, 12))
+                birth_year = str(random.randint(1950, 2004))
                 birth_date = birth_day + '.' + birth_month + '.' + birth_year
                 name = surname + ',' + name
-                ex_day = str(random.randint(1,28))
-                ex_month = str(random.randint(1,12))
-                ex_year = str(random.randint(2012,2018))
+                ex_day = str(random.randint(1, 28))
+                ex_month = str(random.randint(1, 12))
+                ex_year = str(random.randint(2012, 2018))
                 ex_date = ex_day + '.' + ex_month + '.' + ex_year
                 name1 = 'NAME: ' + name + ' ' * (44 - len(name))
                 birth_date1 = 'DATE-OF-BIRTH: ' + birth_date + ' ' * (35 - len(birth_date))
                 sex1 = 'SEX: ' + sex + ' ' * (45 - len(sex))
                 country1 = 'COUNTRY: ' + country + ' ' * (41 - len(country))
                 ex_date1 = 'EXPIRATION-DATE: ' + ex_date + ' ' * (33 - len(ex_date))
-            
+
             elif mistake == 'incor_country':
-                surname = list_surname[random.randint(0,16)]
-                country = list_countries[random.randint(0,4)]
-                birth_day = str(random.randint(1,28))
-                birth_month = str(random.randint(1,12))
-                birth_year = str(random.randint(1950,2004))
+                surname = list_surname[random.randint(0, 16)]
+                country = list_countries[random.randint(0, 4)]
+                birth_day = str(random.randint(1, 28))
+                birth_month = str(random.randint(1, 12))
+                birth_year = str(random.randint(1950, 2004))
                 birth_date = birth_day + '.' + birth_month + '.' + birth_year
                 name = surname + ',' + name
-                ex_day = str(random.randint(1,28))
-                ex_month = str(random.randint(1,12))
-                ex_year = str(random.randint(2019,2025))
+                ex_day = str(random.randint(1, 28))
+                ex_month = str(random.randint(1, 12))
+                ex_year = str(random.randint(2019, 2025))
                 ex_date = ex_day + '.' + ex_month + '.' + ex_year
                 name1 = 'NAME: ' + name + ' ' * (44 - len(name))
                 birth_date1 = 'DATE-OF-BIRTH: ' + birth_date + ' ' * (35 - len(birth_date))
@@ -207,105 +208,105 @@ while endgame == 2:
                 ex_date1 = 'EXPIRATION-DATE: ' + ex_date + ' ' * (33 - len(ex_date))
                 country2 = country
                 while country2 == country:
-                    country = list_countries[random.randint(0,4)]
-            
+                    country = list_countries[random.randint(0, 4)]
+
             elif mistake == 'wr_country':
-                country_num = random.randint(0,4)
+                country_num = random.randint(0, 4)
                 country1 = list_incor_country[country_num]
                 country = list_countries[country_num]
-                surname = list_surname[random.randint(0,16)]
-                birth_day = str(random.randint(1,28))
-                birth_month = str(random.randint(1,12))
-                birth_year = str(random.randint(1950,2004))
+                surname = list_surname[random.randint(0, 16)]
+                birth_day = str(random.randint(1, 28))
+                birth_month = str(random.randint(1, 12))
+                birth_year = str(random.randint(1950, 2004))
                 birth_date = birth_day + '.' + birth_month + '.' + birth_year
                 name = surname + ',' + name
-                ex_day = str(random.randint(1,28))
-                ex_month = str(random.randint(4,12))
-                ex_year = str(random.randint(2019,2025))
+                ex_day = str(random.randint(1, 28))
+                ex_month = str(random.randint(4, 12))
+                ex_year = str(random.randint(2019, 2025))
                 ex_date = ex_day + '.' + ex_month + '.' + ex_year
                 name1 = 'NAME: ' + name + ' ' * (44 - len(name))
                 birth_date1 = 'DATE-OF-BIRTH: ' + birth_date + ' ' * (35 - len(birth_date))
                 sex1 = 'SEX: ' + sex + ' ' * (45 - len(sex))
                 country1 = 'COUNTRY: ' + country1 + ' ' * (41 - len(country1))
                 ex_date1 = 'EXPIRATION-DATE: ' + ex_date + ' ' * (33 - len(ex_date))
-            
+
             elif mistake == 'incor_name':
                 if sex == 1:
-                    name_num = random.randint(0,20)
+                    name_num = random.randint(0, 20)
                     name = list_name_male[name_num]
                     name1 = list_incor_name_male[name_num]
                 else:
-                    name_num = random.randint(0,8)
+                    name_num = random.randint(0, 8)
                     name = list_name_female[name_num]
                     name1 = list_incor_name_female[name_num]
-                surname = list_surname[random.randint(0,16)]
-                country = list_countries[random.randint(0,4)]
-                birth_day = str(random.randint(1,28))
-                birth_month = str(random.randint(1,12))
-                birth_year = str(random.randint(1950,2004))
+                surname = list_surname[random.randint(0, 16)]
+                country = list_countries[random.randint(0, 4)]
+                birth_day = str(random.randint(1, 28))
+                birth_month = str(random.randint(1, 12))
+                birth_year = str(random.randint(1950, 2004))
                 birth_date = birth_day + '.' + birth_month + '.' + birth_year
                 name1 = surname + ',' + name1
                 name = surname + ',' + name
-                ex_day = str(random.randint(1,28))
-                ex_month = str(random.randint(4,12))
-                ex_year = str(random.randint(2019,2025))
+                ex_day = str(random.randint(1, 28))
+                ex_month = str(random.randint(4, 12))
+                ex_year = str(random.randint(2019, 2025))
                 ex_date = ex_day + '.' + ex_month + '.' + ex_year
                 name1 = 'NAME: ' + name1 + ' ' * (44 - len(name1))
                 birth_date1 = 'DATE-OF-BIRTH: ' + birth_date + ' ' * (35 - len(birth_date))
                 sex1 = 'SEX: ' + sex + ' ' * (45 - len(sex))
                 country1 = 'COUNTRY: ' + country + ' ' * (41 - len(country))
                 ex_date1 = 'EXPIRATION-DATE: ' + ex_date + ' ' * (33 - len(ex_date))
-            
+
             else:
-                surname_num = random.randint(0,16)
+                surname_num = random.randint(0, 16)
                 surname = list_surname[surname_num]
                 surname1 = list_incor_surname[surname_num]
-                country = list_countries[random.randint(0,4)]
-                birth_day = str(random.randint(1,28))
-                birth_month = str(random.randint(1,12))
-                birth_year = str(random.randint(1950,2004))
+                country = list_countries[random.randint(0, 4)]
+                birth_day = str(random.randint(1, 28))
+                birth_month = str(random.randint(1, 12))
+                birth_year = str(random.randint(1950, 2004))
                 birth_date = birth_day + '.' + birth_month + '.' + birth_year
                 name1 = surname1 + ',' + name
                 name = surname + ',' + name
-                ex_day = str(random.randint(1,28))
-                ex_month = str(random.randint(4,12))
-                ex_year = str(random.randint(2019,2025))
+                ex_day = str(random.randint(1, 28))
+                ex_month = str(random.randint(4, 12))
+                ex_year = str(random.randint(2019, 2025))
                 ex_date = ex_day + '.' + ex_month + '.' + ex_year
                 name1 = 'NAME: ' + name1 + ' ' * (44 - len(name1))
                 birth_date1 = 'DATE-OF-BIRTH: ' + birth_date + ' ' * (35 - len(birth_date))
                 sex1 = 'SEX: ' + sex + ' ' * (45 - len(sex))
                 country1 = 'COUNTRY: ' + country + ' ' * (41 - len(country))
                 ex_date1 = 'EXPIRATION-DATE: ' + ex_date + ' ' * (33 - len(ex_date))
-        
+
         if true_answer == 1:
-            surname = list_surname[random.randint(0,16)]
-            country = list_countries[random.randint(0,4)]
-            birth_day = str(random.randint(1,28))
-            birth_month = str(random.randint(1,12))
-            birth_year = str(random.randint(1950,2004))
+            surname = list_surname[random.randint(0, 16)]
+            country = list_countries[random.randint(0, 4)]
+            birth_day = str(random.randint(1, 28))
+            birth_month = str(random.randint(1, 12))
+            birth_year = str(random.randint(1950, 2004))
             birth_date = birth_day + '.' + birth_month + '.' + birth_year
             name = surname + ',' + name
-            ex_day = str(random.randint(1,28))
-            ex_month = str(random.randint(4,12))
-            ex_year = str(random.randint(2019,2025))
+            ex_day = str(random.randint(1, 28))
+            ex_month = str(random.randint(4, 12))
+            ex_year = str(random.randint(2019, 2025))
             ex_date = ex_day + '.' + ex_month + '.' + ex_year
             name1 = 'NAME: ' + name + ' ' * (44 - len(name))
             birth_date1 = 'DATE-OF-BIRTH: ' + birth_date + ' ' * (35 - len(birth_date))
             sex1 = 'SEX: ' + sex + ' ' * (45 - len(sex))
             country1 = 'COUNTRY: ' + country + ' ' * (41 - len(country))
             ex_date1 = 'EXPIRATION-DATE: ' + ex_date + ' ' * (33 - len(ex_date))
-        
+
         passport = passport.replace('NAME:                                             ', name1)
         passport = passport.replace('DATE-OF-BIRTH:                                    ', birth_date1)
         passport = passport.replace('SEX:                                              ', sex1)
         passport = passport.replace('COUNTRY:                                          ', country1)
-        passport = passport.replace('EXPIRATION-DATE:                                  ', ex_date1)    
+        passport = passport.replace('EXPIRATION-DATE:                                  ', ex_date1)
         print(passport)
         print('VISITOR INFORMATION:')
         print('NAME: ', name)
         print('DATE OF BIRTH: ', birth_date)
         print('COUNTRY: ', country)
-                
+
         print('"1" - пропустить, "0" - отклонить')
         try:
             answer = int(input())
@@ -327,27 +328,27 @@ while endgame == 2:
                 num_of_incorrect = num_of_incorrect + 1
                 print('НЕВЕРНО!')
                 print('ВНИМАТЕЛЬНЕЕ!')
-        if true_answer == 0 and answer == 0 :
-            chance = (random.randint(0,100))
-            bribe = (random.randint(30,100))
+        if true_answer == 0 and answer == 0:
+            chance = (random.randint(0, 100))
+            bribe = (random.randint(30, 100))
             if chance < 20:
-                print('Вам предложили взятку:',bribe,'$')
+                print('Вам предложили взятку:', bribe, '$')
                 print('"1" - принять, "0" - отклонить')
-                ans=input()
+                ans = input()
                 print('Successfuly!')
                 if ans == '1':
                     money += bribe
                     money_notfair += bribe
                     bribe_taken += 1
-                    
+
         inspect_chance = 7 + 2**bribe_taken
-        if random.randint(1,100) < inspect_chance :
+        if random.randint(1, 100) < inspect_chance:
             print('Вас окружила полиция!')
-            if bribe_taken == 0 :
+            if bribe_taken == 0:
                 print('Каким-то чудом Вы смогли избежать наказания!')
-            elif random.randint(1,100) < 40 and bribe_taken != 0 :
-                rnd = random.randint(2,6)
-                print('Вы можете откупиться:', money // rnd,'$')
+            elif random.randint(1, 100) < 40 and bribe_taken != 0:
+                rnd = random.randint(2, 6)
+                print('Вы можете откупиться:', money // rnd, '$')
                 print('"1" - откупиться, "0" - нет')
                 wow = input()
                 if wow == '1':
@@ -357,8 +358,8 @@ while endgame == 2:
                 bribe_taken = 0
             else:
                 print('ВАС ПОЙМАЛИ!!!')
-                print('У вас забрали', money_notfair // 2.5 + money // 3,'$')
-                money -= (money_notfair //1.5 + money//3)
+                print('У вас забрали', money_notfair // 2.5 + money // 3, '$')
+                money -= (money_notfair // 1.5 + money // 3)
                 bribe_taken = 0
             print()
         cur_time = time.time()
@@ -384,22 +385,22 @@ while endgame == 2:
     med = 0
     deathprob = (3 ** day_wo_food + 2 ** day_wo_med) ** 1
     if son == 1:
-        chance = random.randint(0,100)
+        chance = random.randint(0, 100)
         if chance < deathprob:
             son = 0
             print('Ваш сын умер...')
     if daughter == 1:
-        chance = random.randint(0,100)
+        chance = random.randint(0, 100)
         if chance < deathprob:
             daughter = 0
             print('Ваша дочь умерла...')
     if wife == 1:
-        chance = random.randint(0,100)
+        chance = random.randint(0, 100)
         if chance < deathprob:
             wife = 0
             print('Ваша жена умерла...')
     if mother_in_law == 1:
-        chance = random.randint(0,100)
+        chance = random.randint(0, 100)
         if chance < deathprob:
             mother_in_law = 0
             print('Ваша тёща умерла...')
@@ -410,9 +411,9 @@ while endgame == 2:
         endgame = 4
     if money < 0:
         endgame = 5
-    if money > 1000 :
-        endgame = 1        
-    
+    if money > 1000:
+        endgame = 1
+
 if endgame == 1:
     print('ПОЗДРАВЛЯЕМ!')
     print('ВЫ ПОБЕДИЛИ!')
