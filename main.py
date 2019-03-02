@@ -132,7 +132,7 @@ while endgame == 2:
     num_of_incorrect = 0
     vis_num = 0
 
-    while start_time > cur_time - 30 and num_of_incorrect < 4:
+    while start_time > cur_time - 45 and num_of_incorrect < 4:
         vis_num = vis_num + 1
         print('Посетитель номер: ', vis_num)
         true_answer = random.randint(0, 1)
@@ -353,5 +353,5 @@ elif endgame == 4:
     print('На Вас донесли в полицию и совсем скоро вы окажетесь в тюрьме...')
 else:
     print('ВЫ ПРОИГРАЛИ')
-    print('У Вас больше нет денег на оплату жилья и теперь' /
+    print('У Вас больше нет денег на оплату жилья и теперь' +
           'Ваша семья погибнет на улице от морозов...')
