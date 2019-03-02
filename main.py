@@ -25,7 +25,7 @@ list_incor_country = ['Antagria', 'Impar', 'Obriсtan', 'Kojechia', 'Republїa']
 list_incor_name_male = ['Fracoиs', 'Tcukan', 'Arran', 'Claudy', 'Pettr',
                         'Alan', 'Mikhael', 'Niktta', 'Gregori', 'Eygen',
                         'Tomos', 'Biorn', 'Jonn', 'Symkn', 'Vinci', 'Danik',
-                        'Kardon', 'Mescof', 'Michail', 'Nathon', '`Filipэ']
+                        'Kardon', 'Mescof', 'Michail', 'Nathon', 'Filipэ']
 
 list_incor_surname = ['Digruse', 'Tsukan', 'Hopcratt', 'Modhias', 'Cizatlo',
                       'Ingabret', 'Lapes', 'Dragamir', 'Desjadins',
